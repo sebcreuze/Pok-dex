@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function NavBar({ pokemonIndex, pokemonList, setpokemonIndex }) {
   const handleClickSuivant = () => {
     setpokemonIndex(pokemonIndex + 1);
@@ -21,3 +23,14 @@ export default function NavBar({ pokemonIndex, pokemonList, setpokemonIndex }) {
     </>
   );
 }
+
+NavBar.protoTypes = {
+  pokemonIndex: PropTypes.number.isRequired,
+  setpokemonIndex: PropTypes.func.isRequired,
+  pokemonList: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      imgSrc: PropTypes.string,
+    })
+  ).isRequired,
+};
