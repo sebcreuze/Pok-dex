@@ -6,16 +6,17 @@ export default function NavBar({
 }) {
   return (
     <>
-      {pokemonIndex > 0 ? (
+      {pokemonIndex > 0 && (
         <button onClick={handleClickPrécédent}>
           <p>Précédent</p>
         </button>
-      ) : undefined}
-      {pokemonIndex < pokemonList.length - 1 ? (
+      )}
+
+      {pokemonIndex < pokemonList.length - 1 && (
         <button onClick={handleClickSuivant}>
           <p>Suivant</p>
         </button>
-      ) : undefined}
+      )}
     </>
   );
 }
