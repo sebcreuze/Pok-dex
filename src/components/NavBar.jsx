@@ -1,9 +1,10 @@
-export default function NavBar({
-  pokemonIndex,
-  pokemonList,
-  handleClickPrécédent,
-  handleClickSuivant,
-}) {
+export default function NavBar({ pokemonIndex, pokemonList, setpokemonIndex }) {
+  const handleClickSuivant = () => {
+    setpokemonIndex(pokemonIndex + 1);
+  };
+  const handleClickPrécédent = () => {
+    setpokemonIndex(pokemonIndex - 1);
+  };
   return (
     <>
       {pokemonIndex > 0 && (
