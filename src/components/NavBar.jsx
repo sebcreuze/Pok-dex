@@ -1,10 +1,18 @@
 import PropTypes from "prop-types";
 
-export default function NavBar({ pokemonList, setpokemonIndex }) {
+function NavBar({ pokemonList, setPokemonIndex }) {
   return (
     <>
       {pokemonList.map((pokemon, index) => (
-        <button key={pokemon.name} onClick={() => setpokemonIndex(index)}>
+        <button
+          key={pokemon.name}
+          onClick={() => {
+            setPokemonIndex(index);
+            if (pokemon.name === "pikachu") {
+              alert("pika pikachu !!!");
+            }
+          }}
+        >
           {pokemon.name}
         </button>
       ))}
@@ -12,8 +20,8 @@ export default function NavBar({ pokemonList, setpokemonIndex }) {
   );
 }
 
-NavBar.protoTypes = {
-  setpokemonIndex: PropTypes.func.isRequired,
+NavBar.propTypes = {
+  setPokemonIndex: PropTypes.func.isRequired,
   pokemonList: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -21,3 +29,5 @@ NavBar.protoTypes = {
     })
   ).isRequired,
 };
+
+export default NavBar;
